@@ -43,6 +43,11 @@ dependencies:
   google_sign_in: ^5.4.2
   sizer: ^2.0.15
   get_storage: ^2.0.3
+  google_fonts: ^3.0.1
+  http: ^0.13.5
+  carousel_slider: ^4.2.1
+  widget_slider: ^0.1.0
+  fan_carousel_image_slider: ^0.0.1
 
 dev_dependencies:
   flutter_test:
