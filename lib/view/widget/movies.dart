@@ -3,41 +3,30 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../logic/controllers/movies_controller.dart';
-import '../../model/credits_model.dart';
-import '../../model/genres_model.dart';
 import '../../model/movies_model.dart';
-import '../../servises/servise.dart';
 import '../../utils/url_constants.dart';
 import 'auth_widget/text_widget.dart';
 import 'movie_details.dart';
 
-class TopRated extends StatefulWidget {
-  TopRated({super.key, this.themeData, this.genres, this.api});
-  final ThemeData? themeData;
-  final List<Genres>? genres;
-  final String? api;
+class Movies extends StatefulWidget {
+  Movies({super.key, required this.api});
+  final String api;
 
   @override
-  State<TopRated> createState() => _CarouselSliderImageState();
+  State<Movies> createState() => _CarouselSliderImageState();
 }
 
-class _CarouselSliderImageState extends State<TopRated> {
+class _CarouselSliderImageState extends State<Movies> {
   List<Movie>? moviesList;
-  Credits? credits;
 
   @override
   void initState() {
     super.initState();
-    controller.fetchMovies(Endpoints.topRatedUrl(1)).then((value) {
+    controller.fetchMovies(widget.api).then((value) {
       setState(() {
         moviesList = value.cast<Movie>();
       });
     });
-    // controller.fetchCredits(widget.api!).then((value) {
-    //   setState(() {
-    //     credits = value;
-    //   });
-    // });
   }
 
   final controller = Get.put(MoviesController());

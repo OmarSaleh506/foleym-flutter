@@ -89,15 +89,14 @@ class AuthController extends GetxController
   }
 
   loginUsingFirebase({
-    required String email,
     required String password,
   }) async {
     try {
-      print("in auth $email");
       print("in auth controller var email $displayUserEmail");
       print("in auth controller var name $displayUserName");
       await auth
-          .signInWithEmailAndPassword(email: email, password: password)
+          .signInWithEmailAndPassword(
+              email: displayUserEmail.value.trim(), password: password)
           .then((value) async {
         DocumentSnapshot userDoc = await FirebaseFirestore.instance
             .collection('users')
@@ -105,7 +104,7 @@ class AuthController extends GetxController
             .get();
         Map<String, dynamic> docData = userDoc.data() as Map<String, dynamic>;
         displayUserName.value = docData['displayName'];
-        displayUserEmail.value = docData['email'];
+        // displayUserEmail.value = docData['email'];
         displayDescription.value = docData['description'];
         displayUserPhoto.value = docData['image'];
       });
@@ -124,6 +123,7 @@ class AuthController extends GetxController
       } else {
         message = error.message.toString();
       }
+      print(error);
       Get.snackbar(title, message,
           snackPosition: SnackPosition.TOP,
           backgroundColor: Colors.red,

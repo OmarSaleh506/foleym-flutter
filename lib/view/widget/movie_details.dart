@@ -190,13 +190,17 @@ class MovieDetails extends StatelessWidget {
                 SizedBox(
                   height: 2.h,
                 ),
-                Padding(
-                  padding: EdgeInsets.only(left: 2.w, right: 4.w),
-                  child: TextWidget(
-                    size: 10.sp,
-                    text: "${movie.overview}",
-                    color: Colors.grey,
-                  ),
+                Expanded(
+                  child: ListView(children: [
+                    Padding(
+                      padding: EdgeInsets.only(left: 2.w, right: 4.w),
+                      child: TextWidget(
+                        size: 10.sp,
+                        text: "${movie.overview}",
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ]),
                 ),
                 SizedBox(
                   height: 3.h,

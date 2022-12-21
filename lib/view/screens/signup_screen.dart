@@ -139,14 +139,12 @@ class SignUp extends StatelessWidget {
                       builder: (_) => AuthButton(
                         text: 'Agree and Continue',
                         onPressed: () {
-                          String name = nameController.text.trim();
+                          String name = nameController.text;
                           String password = passwordController.text;
-
                           controller.signUpUsingEmail(
                             name: name,
                             password: password,
                           );
-
                           showDialog(
                             context: context,
                             builder: (context) {

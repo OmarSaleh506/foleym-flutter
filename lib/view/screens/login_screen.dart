@@ -133,11 +133,8 @@ class LoginScreen extends StatelessWidget {
                       builder: (_) => AuthButton(
                         text: 'Continue',
                         onPressed: () {
-                          String email =
-                              controller.displayUserEmail.value.trim();
                           controller.loginUsingFirebase(
                             password: passwordController.text,
-                            email: email,
                           );
                           showDialog(
                             context: context,

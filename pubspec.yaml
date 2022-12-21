@@ -48,6 +48,7 @@ dependencies:
   carousel_slider: ^4.2.1
   widget_slider: ^0.1.0
   fan_carousel_image_slider: ^0.0.1
+  firebase_crashlytics: ^3.0.7
 
 dev_dependencies:
   flutter_test:

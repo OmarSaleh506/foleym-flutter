@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:foleym/logic/controllers/movies_controller.dart';
-import 'package:foleym/model/movies_model.dart';
+import 'package:foleym/servises/servise.dart';
 import 'package:foleym/view/widget/auth_widget/text_widget.dart';
-import 'package:foleym/view/widget/movies_widget.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../logic/controllers/auth_controller.dart';
-import '../widget/carousel_slider_widget.dart';
+import '../widget/movies.dart';
 import '../widget/header_widget.dart';
-import '../widget/now_plyaing.dart';
-import '../widget/popular.dart';
-import '../widget/top_reated.dart';
-import '../widget/up_coming.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
@@ -97,10 +92,13 @@ class HomeScreen extends StatelessWidget {
               SizedBox(
                 height: 2.h,
               ),
-              Discover(),
+              Movies(
+                api: Endpoints.discoverMoviesUrl(1),
+              ),
               SizedBox(
                 height: 3.h,
               ),
+              //  MoviesWidget(),
               Padding(
                 padding: EdgeInsets.only(left: 4.w),
                 child: Align(
@@ -115,7 +113,9 @@ class HomeScreen extends StatelessWidget {
               SizedBox(
                 height: 2.h,
               ),
-              TopRated(),
+              Movies(
+                api: Endpoints.topRatedUrl(1),
+              ),
               SizedBox(
                 height: 3.h,
               ),
@@ -133,7 +133,9 @@ class HomeScreen extends StatelessWidget {
               SizedBox(
                 height: 2.h,
               ),
-              UpComing(),
+              Movies(
+                api: Endpoints.upcomingMoviesUrl(1),
+              ),
               SizedBox(
                 height: 3.h,
               ),
@@ -151,7 +153,9 @@ class HomeScreen extends StatelessWidget {
               SizedBox(
                 height: 2.h,
               ),
-              NowPlaying(),
+              Movies(
+                api: Endpoints.nowPlayingMoviesUrl(2),
+              ),
               SizedBox(
                 height: 3.h,
               ),
@@ -169,11 +173,12 @@ class HomeScreen extends StatelessWidget {
               SizedBox(
                 height: 2.h,
               ),
-              Popular(),
+              Movies(
+                api: Endpoints.popularMoviesUrl(2),
+              ),
               SizedBox(
                 height: 2.h,
               ),
-              // MoviesWidget()
             ],
           ),
         ),

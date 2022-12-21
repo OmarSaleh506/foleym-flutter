@@ -53,9 +53,6 @@ class Header extends StatelessWidget {
             ],
           ),
         ),
-        // SizedBox(
-        //   width: 50.w,
-        // ),
         TextButton(
           onPressed: onPressed,
           child: widget,
