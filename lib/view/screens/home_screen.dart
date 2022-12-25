@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foleym/logic/controllers/movies_controller.dart';
 import 'package:foleym/servises/servise.dart';
-import 'package:foleym/view/widget/auth_widget/text_widget.dart';
+import 'package:foleym/view/widget/text_widget.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../logic/controllers/auth_controller.dart';
@@ -15,7 +15,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int currentIndex = 0;
+    // int currentIndex = 0;
     return SafeArea(
       child: Scaffold(
         // bottomNavigationBar: BottomNavigationBar(
@@ -134,7 +134,7 @@ class HomeScreen extends StatelessWidget {
                 height: 2.h,
               ),
               Movies(
-                api: Endpoints.upcomingMoviesUrl(1),
+                api: Endpoints.upcomingMoviesUrl(2),
               ),
               SizedBox(
                 height: 3.h,
@@ -154,7 +154,7 @@ class HomeScreen extends StatelessWidget {
                 height: 2.h,
               ),
               Movies(
-                api: Endpoints.nowPlayingMoviesUrl(2),
+                api: Endpoints.nowPlayingMoviesUrl(4),
               ),
               SizedBox(
                 height: 3.h,

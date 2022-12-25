@@ -92,11 +92,10 @@ class AuthController extends GetxController
     required String password,
   }) async {
     try {
-      print("in auth controller var email $displayUserEmail");
+      print("in auth controller var email $currentEmail");
       print("in auth controller var name $displayUserName");
-      await auth
-          .signInWithEmailAndPassword(
-              email: displayUserEmail.value.trim(), password: password)
+      await auth.signInWithEmailAndPassword(
+          email: currentEmail.value.trim(), password: password)
           .then((value) async {
         DocumentSnapshot userDoc = await FirebaseFirestore.instance
             .collection('users')
@@ -104,9 +103,6 @@ class AuthController extends GetxController
             .get();
         Map<String, dynamic> docData = userDoc.data() as Map<String, dynamic>;
         displayUserName.value = docData['displayName'];
-        // displayUserEmail.value = docData['email'];
-        displayDescription.value = docData['description'];
-        displayUserPhoto.value = docData['image'];
       });
 
       isSignedIn = true;
@@ -331,25 +327,22 @@ class AuthController extends GetxController
   Future<void> checkEmailOnFirebase(TextEditingController email) async {
     try {
       final check =
-          FirebaseFirestore.instance.collection('users').doc(email.text);
+          FirebaseFirestore.instance.collection('users').doc(email.text.trim());
 
       check.get().then((value) async {
         DocumentSnapshot userDoc = await FirebaseFirestore.instance
             .collection('users')
-            .doc(email.text)
+            .doc(email.text.trim())
             .get();
 
         if (value.exists) {
           Map<String, dynamic> docData = userDoc.data() as Map<String, dynamic>;
           displayUserName.value = docData['displayName'];
-          // displayUserEmail.value = docData['email'];
-          displayDescription.value = docData['description'];
-          displayUserPhoto.value = docData['image'];
-          currentEmail.value = email.text;
+          currentEmail.value = email.text.trim();
           Get.toNamed(Routes.loginScreen);
           print(currentEmail);
         } else {
-          displayUserEmail.value = email.text;
+          displayUserEmail.value = email.text.trim();
           Get.toNamed(Routes.signUpScreen);
           print(displayUserEmail);
           update();

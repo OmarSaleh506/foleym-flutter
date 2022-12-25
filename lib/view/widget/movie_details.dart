@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:foleym/view/widget/auth_widget/text_widget.dart';
+import 'package:foleym/view/widget/text_widget.dart';
 import 'package:foleym/view/widget/cast_widget.dart';
+import 'package:foleym/view/widget/video.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../model/genres_model.dart';
@@ -69,7 +70,17 @@ class MovieDetails extends StatelessWidget {
                   height: 9.h,
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => VideoWidget(
+                          movieId: movie.id!,
+                        ),
+                      ),
+                    );
+                    print("movie id : ${movie.id}");
+                  },
                   child: Icon(
                     Icons.play_circle,
                     color: Color.fromARGB(255, 179, 39, 26),
@@ -219,9 +230,15 @@ class MovieDetails extends StatelessWidget {
                 SizedBox(
                   height: 2.h,
                 ),
-                CastWidget(
-                  api: Endpoints.getCreditsUrl(movie.id!),
-                )
+                Expanded(
+                  child: ListView(
+                    children: [
+                      CastWidget(
+                        api: Endpoints.getCreditsUrl(movie.id!),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ],

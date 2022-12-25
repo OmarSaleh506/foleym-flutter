@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../logic/controllers/movies_controller.dart';
-import 'auth_widget/text_widget.dart';
+import 'text_widget.dart';
 
 class MoviesWidget extends StatefulWidget {
   const MoviesWidget({super.key});

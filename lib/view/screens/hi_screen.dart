@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foleym/routes/route.dart';
 import 'package:foleym/view/widget/auth_widget/auth_button.dart';
-import 'package:foleym/view/widget/auth_widget/text_widget.dart';
+import 'package:foleym/view/widget/text_widget.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../logic/controllers/auth_controller.dart';

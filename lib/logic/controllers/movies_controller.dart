@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_controller.dart';
+import 'package:foleym/model/video_model.dart';
 import 'package:get/get.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -56,5 +57,12 @@ class MoviesController extends GetxController {
     var decodeRes = jsonDecode(res.body);
     genresList = GenresList.fromJson(decodeRes);
     return genresList;
+  }
+  Future<Video> fetchVideos(int movieId) async {
+    Video videosList;
+    var res = await http.get(Uri.parse(Endpoints.getMoviesForVideo(movieId)));
+    var decodeRes = jsonDecode(res.body);
+    videosList = Video.fromJson(decodeRes);
+    return videosList;
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foleym/view/widget/auth_widget/text_widget.dart';
+import 'package:foleym/view/widget/text_widget.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
@@ -33,7 +33,7 @@ class _CastWidgetState extends State<CastWidget> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 120,
+      height: 13.h,
       child: credits == null
           ? const Center(
               child: CircularProgressIndicator(),
@@ -44,18 +44,18 @@ class _CastWidgetState extends State<CastWidget> {
               scrollDirection: Axis.horizontal,
               itemBuilder: (BuildContext context, int index) {
                 return Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(2.0.w),
                   child: GestureDetector(
                     onTap: () {},
                     child: SizedBox(
-                      width: 80,
+                      width: 18.w,
                       child: Column(
                         children: <Widget>[
                           Expanded(
                             child: SizedBox(
                               width: 15.w,
                               child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
+                                borderRadius: BorderRadius.circular(3.w),
                                 child: credits!.cast![index].profilePath == null
                                     ? Image.asset(
                                         'assets/images/cast.gif',
@@ -76,7 +76,7 @@ class _CastWidgetState extends State<CastWidget> {
                           ),
                           TextWidget(
                             text: credits!.cast![index].name!,
-                            size: 12.sp,
+                            size: 8.sp,
                             overflow: TextOverflow.ellipsis,
                             color: Colors.white,
                           )

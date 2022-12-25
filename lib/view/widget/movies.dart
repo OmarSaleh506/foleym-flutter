@@ -1,11 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:foleym/view/widget/text_widget.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../logic/controllers/movies_controller.dart';
 import '../../model/movies_model.dart';
 import '../../utils/url_constants.dart';
-import 'auth_widget/text_widget.dart';
 import 'movie_details.dart';
 
 class Movies extends StatefulWidget {
@@ -133,6 +133,7 @@ class _CarouselSliderImageState extends State<Movies> {
                         ),
                       );
                       print(moviesList![itemIndex].title);
+                      print(moviesList![itemIndex].id);
                     },
                   );
                 },

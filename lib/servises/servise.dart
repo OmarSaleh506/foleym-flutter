@@ -60,6 +60,10 @@ class Endpoints {
         '&page=$page'
         '&with_genres=$genreId';
   }
+  static String getMoviesForVideo(int movieId) {
+    return '$TMDB_API_BASE_URL/movie/$movieId/videos?api_key=$TMDB_API_KEY'
+        '&language=en-US';
+  }
 
   // static String movieReviewsUrl(int movieId, int page) {
   //   return '$TMDB_API_BASE_URL/movie/$movieId/reviews?api_key=$TMDB_API_KEY'
